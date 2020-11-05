@@ -28,9 +28,13 @@ public class Supermarket {
     }
 
     public Artikl izbaciArtiklSaKodom (String kod) {
-        for (int i = 0; i < 1000; i++)
-            if (this.getArtikli()[i] != null && this.getArtikli()[i].getKod().equals(kod))
-                return this.getArtikli()[i];
+        for (int i = 0; i < 1000; i++) {
+            if (this.getArtikli()[i] != null && this.getArtikli()[i].getKod().equals(kod)) {
+                Artikl a = this.getArtikli()[i];
+                this.getArtikli()[i] = null;
+                return a;
+            }
+        }
         return null;
     }
 

@@ -20,9 +20,9 @@ public class Korpa {
     }
 
     public boolean dodajArtikl (Artikl a) {
-        for (Artikl ar : this.getArtikli()) {
-            if (ar == null) {
-                ar = a;
+        for (int i = 0; i < 50; i++) {
+            if (this.getArtikli()[i] == null) {
+                this.getArtikli()[i] = a;
                 return true;
             }
         }
@@ -30,8 +30,10 @@ public class Korpa {
     }
 
     public Artikl izbaciArtiklSaKodom (String kod) {
-        for (Artikl a : this.getArtikli()) {
-            if (a.getKod().equals(kod)) {
+        for (int i = 0; i < 50; i++) {
+            if (this.getArtikli()[i].getKod().equals(kod)) {
+                Artikl a = this.getArtikli()[i];
+                this.getArtikli()[i] = null;
                 return a;
             }
         }
@@ -41,7 +43,8 @@ public class Korpa {
     public int dajUkupnuCijenuArtikala() {
         int sumaCijena = 0;
         for (Artikl a : this.getArtikli())
-            sumaCijena += a.getCijena();
+            if (a != null)
+                sumaCijena += a.getCijena();
         return sumaCijena;
     }
 
