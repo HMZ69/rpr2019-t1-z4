@@ -47,5 +47,4 @@ public class Korpa {
                 sumaCijena += a.getCijena();
         return sumaCijena;
     }
-
 }
